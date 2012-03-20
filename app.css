@@ -1,0 +1,56 @@
+label:after {
+    content: ": ";
+}
+
+.ui-radio label:after {
+    content: "";
+}
+
+fieldset.horizontal input.ui-input-text,
+fieldset.horizontal textarea.ui-input-text,
+fieldset.horizontal .ui-select {
+    float: left;
+    width: 41%;
+    margin-right: 1%;
+    display: inline-block;
+}
+
+fieldset.horizontal .ui-controlgroup {
+    width: 48%;
+    margin-right: 1%;
+    float: left;
+}
+
+    fieldset.horizontal .ui-controlgroup .ui-controlgroup-label {
+        width: 14.5%;
+    }
+
+fieldset.horizontal label.ui-input-text,
+fieldset.horizontal label.ui-select,
+fieldset.horizontal fieldset .ui-controlgroup-label {
+    float: left;
+    width: 7%;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 0.3em;
+}
+
+fieldset.horizontal * + * + * + * + label {
+    clear: left;
+}
+fieldset.horizontal * + * + * + * + * + label {
+    clear: none;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+* html .clearfix {
+	height: 1%;
+}
