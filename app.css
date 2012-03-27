@@ -1,3 +1,11 @@
+input.positive {
+    color: #63B500;
+}
+
+input.negative {
+    color: #E10030;
+}
+
 label:after {
     content: ": ";
 }
@@ -6,40 +14,39 @@ label:after {
     content: "";
 }
 
-fieldset.horizontal input.ui-input-text,
-fieldset.horizontal textarea.ui-input-text,
-fieldset.horizontal .ui-select {
-    float: left;
-    width: 41%;
-    margin-right: 1%;
-    display: inline-block;
+table {
+    width: 100%;
 }
 
-fieldset.horizontal .ui-controlgroup {
-    width: 48%;
-    margin-right: 1%;
-    float: left;
+table th,
+table td {
+    padding: 6px;
 }
 
-    fieldset.horizontal .ui-controlgroup .ui-controlgroup-label {
-        width: 14.5%;
-    }
-
-fieldset.horizontal label.ui-input-text,
-fieldset.horizontal label.ui-select,
-fieldset.horizontal fieldset .ui-controlgroup-label {
-    float: left;
-    width: 7%;
-    display: inline-block;
-    vertical-align: top;
-    padding-top: 0.3em;
+table th,
+table th label,
+table th label.ui-slider {
+    font-weight: bold;
 }
 
-fieldset.horizontal * + * + * + * + label {
-    clear: left;
+table thead th {
+    text-align: center;
 }
-fieldset.horizontal * + * + * + * + * + label {
-    clear: none;
+
+table tbody th {
+    text-align: right;
+}
+
+table td.nowrap {
+    white-space: nowrap;
+}
+
+table td input.ui-input-text {
+    width: 95%;
+}
+
+table td input.ui-input-text.ui-slider-input {
+    width: 50px;
 }
 
 .clearfix:after {

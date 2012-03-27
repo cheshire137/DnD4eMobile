@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <title>Dungeons and Dragons 4th Edition character management app</title>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="jquery.mobile.structure-1.0.1.min.css">
-    <link rel="stylesheet" href="jquery.mobile-1.0.1.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css">
+    <link rel="stylesheet" href="themes/TealAwesome.min.css">
     <link rel="stylesheet" href="app.css">
-    <script src="jquery-1.7.1.min.js"></script>
-    <script src="jquery.mobile-1.0.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+    $(document).bind("mobileinit", function() {
+        dnd.controller.init();
+    });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
 </head>
 <body>
     <div data-role="page" id="character-list-page" data-title="Characters">
@@ -21,110 +27,124 @@
     </div>
     <div data-role="page" id="character-basic-info-editor-page" data-title="Edit Character Basic Information">
         <div data-role="header" data-position="fixed">
-            <a href="#character-list-page" data-icon="back" data-rel="back">Cancel</a>
+            <a href="#character-list-page" data-icon="back" data-transition="slide" data-direction="reverse">Cancel</a>
             <h1>Edit Character Basic Information</h1>
             <a id="save-character-button" href="" data-theme="b" data-icon="check">Save</a>
-            <div data-role="navbar" class="ui-navbar ui-navbar-noicons" role="navigation">
-                <ul class="ui-grid-b">
-                    <li class="ui-block-a">
-                        <a href="#character-basic-info-editor-page" data-theme="a" class="ui-btn ui-btn-up-a ui-btn-active ui-state-persist">
-                            <span class="ui-btn-inner"><span class="ui-btn-text">Basics</span></span>
-                        </a>
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#character-basic-info-editor-page" class="ui-btn-active ui-state-persist" data-transition="slide">Basics</a>
                     </li>
-                    <li class="ui-block-b">
-                        <a href="#character-abilities-editor-page" data-theme="a" class="ui-btn ui-btn-up-a">
-                            <span class="ui-btn-inner"><span class="ui-btn-text">Abilities</span></span>
-                        </a>
+                    <li>
+                        <a href="#character-abilities-editor-page" data-transition="slide">Abilities</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div data-role="content">
             <form action="" method="post" id="character-editor-form">
-                <fieldset class="horizontal" id="basic-information-fieldset">
-                    <label for="character-name">Name</label>
-                    <input type="text" name="name" id="character-name" value="">
-                    <label for="character-level">Level</label>
-                    <input type="number" name="level" id="character-level" value="1">
-                    <label for="character-race" class="select">Race</label>
-                    <select name="race" id="character-race">
-                        <option value="Changeling">Changeling</option>
-                        <option value="Deva">Deva</option>
-                        <option value="Dragonborn">Dragonborn</option>
-                        <option value="Drow">Drow</option>
-                        <option value="Dwarf">Dwarf</option>
-                        <option value="Eladrin">Eladrin</option>
-                        <option value="Elf">Elf</option>
-                        <option value="Genasi">Genasi</option>
-                        <option value="Githzerai">Githzerai</option>
-                        <option value="Gnome">Gnome</option>
-                        <option value="Goliath">Goliath</option>
-                        <option value="Half-Elf">Half-Elf</option>
-                        <option value="Half-Orc">Half-Orc</option>
-                        <option value="Halfling">Halfling</option>
-                        <option value="Human">Human</option>
-                        <option value="Kalashtar">Kalashtar</option>
-                        <option value="Minotaur">Minotaur</option>
-                        <option value="Mul">Mul</option>
-                        <option value="Shardmind">Shardmind</option>
-                        <option value="Shifter">Shifter</option>
-                        <option value="Thri-Kreen">Thri-Kreen</option>
-                        <option value="Tiefling">Tiefling</option>
-                        <option value="Warforged">Warforged</option>
-                        <option value="Wilden">Wilden</option>
-                    </select>
-                    <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
-                        <legend>Gender</legend>
-                        <input type="radio" name="gender" id="character-gender-female" value="female" checked="checked">
-                        <label for="character-gender-female">Female</label>
-                        <input type="radio" name="gender" id="character-gender-male" value="male">
-                        <label for="character-gender-male">Male</label>
-                    </fieldset>
-                    <label for="character-alignment" class="select">Alignment</label>
-                    <select name="alignment" id="character-alignment">
-                        <option value="Lawful Good">Lawful Good</option>
-                        <option value="Lawful Neutral">Lawful Neutral</option>
-                        <option value="Lawful Evil">Lawful Evil</option>
-                        <option value="Neutral Good">Neutral Good</option>
-                        <option value="Neutral">Neutral</option>
-                        <option value="Neutral Evil">Neutral Evil</option>
-                        <option value="Chaotic Good">Chaotic Good</option>
-                        <option value="Chaotic Neutral">Chaotic Neutral</option>
-                        <option value="Chaotic Evil">Chaotic Evil</option>
-                    </select>
-                    <label for="character-class" class="select">Class</label>
-                    <select name="class" id="character-class">
-                        <option value="Ardent">Ardent</option>
-                        <option value="Artificer">Artificer</option>
-                        <option value="Assassin">Assassin</option>
-                        <option value="Avenger">Avenger</option>
-                        <option value="Barbarian">Barbarian</option>
-                        <option value="Bard">Bard</option>
-                        <option value="Battlemind">Battlemind</option>
-                        <option value="Cleric">Cleric</option>
-                        <option value="Druid">Druid</option>
-                        <option value="Fighter">Fighter</option>
-                        <option value="Invoker">Invoker</option>
-                        <option value="Monk">Monk</option>
-                        <option value="Paladin">Paladin</option>
-                        <option value="Psion">Psion</option>
-                        <option value="Ranger">Ranger</option>
-                        <option value="Rogue">Rogue</option>
-                        <option value="Runepriest">Runepriest</option>
-                        <option value="Shaman">Shaman</option>
-                        <option value="Seeker">Seeker</option>
-                        <option value="Sorcerer">Sorcerer</option>
-                        <option value="Swordmage">Swordmage</option>
-                        <option value="Warden">Warden</option>
-                        <option value="Warlock">Warlock</option>
-                        <option value="Warlord">Warlord</option>
-                        <option value="Wizard">Wizard</option>
-                    </select>
-                    <label for="character-paragon">Paragon</label>
-                    <input type="text" name="paragon" id="character-paragon" value="">
-                    <label for="character-destiny">Destiny</label>
-                    <input type="text" name="destiny" id="character-destiny" value="">
-                </fieldset>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div data-role="fieldcontain">
+                            <label for="character-name">Name</label>
+                            <input type="text" name="name" id="character-name" value="">
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label for="character-level">Level</label>
+                            <input type="number" name="level" id="character-level" value="1">
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label for="character-race">Race</label>
+                            <select name="race" id="character-race">
+                                <option value="Changeling">Changeling</option>
+                                <option value="Deva">Deva</option>
+                                <option value="Dragonborn">Dragonborn</option>
+                                <option value="Drow">Drow</option>
+                                <option value="Dwarf">Dwarf</option>
+                                <option value="Eladrin">Eladrin</option>
+                                <option value="Elf">Elf</option>
+                                <option value="Genasi">Genasi</option>
+                                <option value="Githzerai">Githzerai</option>
+                                <option value="Gnome">Gnome</option>
+                                <option value="Goliath">Goliath</option>
+                                <option value="Half-Elf">Half-Elf</option>
+                                <option value="Half-Orc">Half-Orc</option>
+                                <option value="Halfling">Halfling</option>
+                                <option value="Human">Human</option>
+                                <option value="Kalashtar">Kalashtar</option>
+                                <option value="Minotaur">Minotaur</option>
+                                <option value="Mul">Mul</option>
+                                <option value="Shardmind">Shardmind</option>
+                                <option value="Shifter">Shifter</option>
+                                <option value="Thri-Kreen">Thri-Kreen</option>
+                                <option value="Tiefling">Tiefling</option>
+                                <option value="Warforged">Warforged</option>
+                                <option value="Wilden">Wilden</option>
+                            </select>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label for="character-paragon">Paragon</label>
+                            <input type="text" name="paragon" id="character-paragon" value="">
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div data-role="fieldcontain">
+                            <label for="character-gender">Gender</label>
+                            <select name="gender" id="character-gender" data-role="slider">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select> 
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label for="character-alignment">Alignment</label>
+                            <select name="alignment" id="character-alignment">
+                                <option value="Lawful Good">Lawful Good</option>
+                                <option value="Lawful Neutral">Lawful Neutral</option>
+                                <option value="Lawful Evil">Lawful Evil</option>
+                                <option value="Neutral Good">Neutral Good</option>
+                                <option value="Neutral" selected="selected">Neutral</option>
+                                <option value="Neutral Evil">Neutral Evil</option>
+                                <option value="Chaotic Good">Chaotic Good</option>
+                                <option value="Chaotic Neutral">Chaotic Neutral</option>
+                                <option value="Chaotic Evil">Chaotic Evil</option>
+                            </select>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label for="character-class">Class</label>
+                            <select name="class" id="character-class">
+                                <option value="Ardent">Ardent</option>
+                                <option value="Artificer">Artificer</option>
+                                <option value="Assassin">Assassin</option>
+                                <option value="Avenger">Avenger</option>
+                                <option value="Barbarian">Barbarian</option>
+                                <option value="Bard">Bard</option>
+                                <option value="Battlemind">Battlemind</option>
+                                <option value="Cleric">Cleric</option>
+                                <option value="Druid">Druid</option>
+                                <option value="Fighter">Fighter</option>
+                                <option value="Invoker">Invoker</option>
+                                <option value="Monk">Monk</option>
+                                <option value="Paladin">Paladin</option>
+                                <option value="Psion">Psion</option>
+                                <option value="Ranger">Ranger</option>
+                                <option value="Rogue">Rogue</option>
+                                <option value="Runepriest">Runepriest</option>
+                                <option value="Shaman">Shaman</option>
+                                <option value="Seeker">Seeker</option>
+                                <option value="Sorcerer">Sorcerer</option>
+                                <option value="Swordmage">Swordmage</option>
+                                <option value="Warden">Warden</option>
+                                <option value="Warlock">Warlock</option>
+                                <option value="Warlord">Warlord</option>
+                                <option value="Wizard">Wizard</option>
+                            </select>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label for="character-destiny">Destiny</label>
+                            <input type="text" name="destiny" id="character-destiny" value="">
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
         <div data-role="footer" data-position="fixed" class="ui-bar">
@@ -133,40 +153,89 @@
     </div>
     <div data-role="page" id="character-abilities-editor-page" data-title="Edit Character Abilities">
         <div data-role="header" data-position="fixed">
-            <a href="#character-list-page" data-icon="back" data-rel="back">Cancel</a>
+            <a href="#character-list-page" data-icon="back" data-transition="slide" data-direction="reverse">Cancel</a>
             <h1>Edit Character Abilities</h1>
             <a id="save-character-button" href="" data-theme="b" data-icon="check">Save</a>
-            <div data-role="navbar" class="ui-navbar ui-navbar-noicons" role="navigation">
-                <ul class="ui-grid-b">
-                    <li class="ui-block-a">
-                        <a href="#character-basic-info-editor-page" data-theme="a" class="ui-btn ui-btn-up-a">
-                            <span class="ui-btn-inner"><span class="ui-btn-text">Basics</span></span>
-                        </a>
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#character-basic-info-editor-page" data-direction="reverse" data-transition="slide">Basics</a>
                     </li>
-                    <li class="ui-block-b">
-                        <a href="#character-abilities-editor-page" data-theme="a" class="ui-btn ui-btn-up-a ui-btn-active ui-state-persist">
-                            <span class="ui-btn-inner"><span class="ui-btn-text">Abilities</span></span>
-                        </a>
+                    <li>
+                        <a href="#character-abilities-editor-page" class="ui-btn-active ui-state-persist" data-transition="slide">Abilities</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div data-role="content">
             <form action="" method="post" id="character-editor-form">
-                <fieldset class="horizontal" id="abilities-fieldset">
-                    <label for="character-strength">Str</label>
-                    <input type="number" name="strength" id="character-strength" value="10">
-                    <label for="character-constitution">Con</label>
-                    <input type="number" name="constitution" id="character-constitution" value="10">
-                    <label for="character-dexterity">Dex</label>
-                    <input type="number" name="dexterity" id="character-dexterity" value="10">
-                    <label for="character-intelligence">Int</label>
-                    <input type="number" name="intelligence" id="character-intelligence" value="10">
-                    <label for="character-wisdom">Wis</label>
-                    <input type="number" name="wisdom" id="character-wisdom" value="10">
-                    <label for="character-charisma">Cha</label>
-                    <input type="number" name="charisma" id="character-charisma" value="10">
-                </fieldset>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Score</th>
+                                    <th scope="col">Mod</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><label for="character-strength">Str</label></th>
+                                    <td class="nowrap"><input type="range" name="strength" id="character-strength" value="10" min="0" max="100"></td>
+                                    <td><input type="range" class="plus-minus" name="strength_mod" min="-50" max="50" id="character-strength-mod" value="0"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="character-constitution">Con</label></th>
+                                    <td class="nowrap"><input type="range" name="constitution" id="character-constitution" value="10" min="0" max="100"></td>
+                                    <td><input type="range" class="plus-minus" name="constitution_mod" min="-50" max="50" id="character-constitution-mod" value="0"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="character-dexterity">Dex</label></th>
+                                    <td class="nowrap"><input type="range" name="dexterity" id="character-dexterity" value="10" min="0" max="100"></td>
+                                    <td><input type="range" class="plus-minus" name="dexterity_mod" min="-50" max="50" id="character-dexterity-mod" value="0"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="character-intelligence">Int</label></th>
+                                    <td class="nowrap"><input type="range" name="intelligence" id="character-intelligence" value="10" min="0" max="100"></td>
+                                    <td><input type="range" class="plus-minus" name="intelligence_mod" min="-50" max="50" id="character-intelligence-mod" value="0"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="character-wisdom">Wis</label></th>
+                                    <td class="nowrap"><input type="range" name="wisdom" id="character-wisdom" value="10" min="0" max="100"></td>
+                                    <td><input type="range" class="plus-minus" name="wisdom_mod" min="-50" max="50" id="character-wisdom-mod" value="0"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="character-charisma">Cha</label></th>
+                                    <td class="nowrap"><input type="range" name="charisma" id="character-charisma" value="10" min="0" max="100"></td>
+                                    <td><input type="range" class="plus-minus" name="charisma_mod" min="-50" max="50" id="character-charisma-mod" value="0"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="ui-block-b">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th><label for="character-armor-class"><abbr title="Armor Class">AC</abbr></label></th>
+                                    <td><input type="range" name="armor_class" id="character-armor-class" value="0" min="0" max="100"></td>
+                                </tr>
+                                <tr>
+                                    <th><label for="character-fortitude"><abbr title="Fortitude">Fort</abbr></label></th>
+                                    <td><input type="range" name="fortitude" id="character-fortitude" value="0" min="0" max="100"></td>
+                                </tr>
+                                <tr>
+                                    <th><label for="character-reflex"><abbr title="Reflex">Ref</abbr></label></th>
+                                    <td><input type="range" name="reflex" id="character-reflex" value="0" min="0" max="100"></td>
+                                </tr>
+                                <tr>
+                                    <th><label for="character-willpower"><abbr title="Willpower">Will</abbr></label></th>
+                                    <td><input type="range" name="willpower" id="character-willpower" value="0" min="0" max="100"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </form>
         </div>
         <div data-role="footer" data-position="fixed" class="ui-bar">
