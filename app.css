@@ -1,52 +1,100 @@
+#character-editor-form .ui-block-a input {
+	width: 4em;
+}
+
+#character-editor-form .ui-block-a table {
+	width: auto;
+}
+
+#character-editor-form .ui-block-b input.mod {
+	width: 3em;
+	display: inline;
+}
+
 input.positive {
-    color: #63B500;
+	color: #63B500;
 }
 
 input.negative {
-    color: #E10030;
+	color: #E10030;
 }
 
 label:after {
-    content: ": ";
+	content: ": ";
 }
 
 .ui-radio label:after {
-    content: "";
+	content: "";
 }
 
 table {
-    width: 100%;
+	width: 100%;
+	border-collapse: collapse;
 }
 
-table th,
-table td {
-    padding: 6px;
+table th,table td {
+	padding: 6px;
 }
 
-table th,
-table th label,
-table th label.ui-slider {
-    font-weight: bold;
+table th,table th label,table th label.ui-slider,table th label.ui-input-text {
+	font-weight: bold;
 }
 
 table thead th {
-    text-align: center;
+	text-align: center;
 }
 
 table tbody th {
-    text-align: right;
+	text-align: right;
 }
 
 table td.nowrap {
-    white-space: nowrap;
+	white-space: nowrap;
 }
 
 table td input.ui-input-text {
-    width: 95%;
+	width: 95%;
+	margin-bottom: 0;
 }
 
 table td input.ui-input-text.ui-slider-input {
-    width: 50px;
+	width: 50px;
+}
+
+tr.nowrap td,tr.nowrap th {
+	white-space: nowrap;
+}
+
+tr.small td,tr.small th,tr.small input.ui-input-text,tr.small textarea.ui-input-text {
+	font-size: 12px;
+}
+
+tr.small td {
+	padding: 3px;
+}
+
+tr.small th {
+	padding: 0 3px;
+}
+
+tr.right td,tr.right th {
+	text-align: right;
+}
+
+tr.center td,tr.center th {
+	text-align: center;
+}
+
+tr.even td,tr.even th {
+	background-color: transparent;
+}
+
+tr.odd td,tr.odd th {
+	background-color: #eaeaea;
+}
+
+tr.even + tr.odd th,tr.even + tr.odd td,tr.odd + tr.even th,tr.odd + tr.even td {
+	border-top: 1px solid #c0c0c0;
 }
 
 .clearfix:after {

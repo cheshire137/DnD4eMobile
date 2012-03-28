@@ -2,7 +2,6 @@ var dnd = dnd || {};
 
 dnd.controller = (function($, document) {
     var highlightPlusMinusInputs = function() {
-        console.log("Highlighting");
         var handler = function() {
             var input = $(this);
             var value = Number(input.val());
