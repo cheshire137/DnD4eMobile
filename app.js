@@ -1,8 +1,24 @@
 var dnd = dnd || {};
 
 dnd.controller = (function($, document) {
+	var charEditorFormSel = '.character-editor-form';
+	
+	var applyModCalculators = function() {
+		$(charEditorFormSel + ' input.mod').change(function() {
+			var input = $(this);
+			var fieldToUpdateID = input.attr('rel');
+			var fieldToUpdate = $('#' + fieldToUpdateID);
+			var baseValue = Number($('#' + fieldToUpdateID + '-base-value').text());
+			var newValue = baseValue;
+			$(charEditorFormSel + ' input.mod[rel=' + fieldToUpdateID + ']').each(function(idx, modFieldRaw) {
+				newValue += Number($(modFieldRaw).val());
+			});
+			fieldToUpdate.val(newValue);
+		});
+	};
+	
     var highlightPlusMinusInputs = function() {
-        var handler = function() {
+        $('input.plus-minus').change(function() {
             var input = $(this);
             var value = Number(input.val());
             if (value < 0) {
@@ -15,8 +31,7 @@ dnd.controller = (function($, document) {
                 input.removeClass('negative');
                 input.addClass('positive');
             }
-        };
-        $('input.plus-minus').change(handler);
+        });
     };
 
     var onPageChange = function(event, data) {
@@ -44,6 +59,7 @@ dnd.controller = (function($, document) {
         d.bind("pagebeforechange", onPageBeforeChange);
         d.bind("pagechange", onPageChange);
         d.bind("pageinit", highlightPlusMinusInputs);
+        d.bind("pageinit", applyModCalculators);
     };
 
     return {

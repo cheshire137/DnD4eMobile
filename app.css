@@ -1,14 +1,46 @@
-#character-editor-form .ui-block-a input {
+.character-editor-form .ui-block-a input {
 	width: 4em;
 }
 
-#character-editor-form .ui-block-a table {
+.character-editor-form .ui-block-a table {
 	width: auto;
 }
 
-#character-editor-form .ui-block-b input.mod {
+.character-editor-form .ui-block-b input.mod {
 	width: 3em;
 	display: inline;
+}
+
+#character-abilities-editor-page .ui-grid-b .ui-block-a {
+	width: 23.5%;
+}
+
+#character-abilities-editor-page .ui-grid-b .ui-block-b {
+	margin-left: 6%;
+	margin-right: 6%;
+	width: 39.5%;
+}
+
+#character-abilities-editor-page .ui-grid-b .ui-block-c {
+	width: 25%;
+}
+
+#character-abilities-editor-page .ui-grid-b .ui-block-c .ui-field-contain label.ui-input-text {
+	width: 100%;
+	display: block;
+	margin-right: 0;
+}
+
+#character-abilities-editor-page .ui-grid-b .ui-block-c .ui-field-contain input.ui-input-text,
+#character-abilities-editor-page .ui-grid-b .ui-block-c .ui-field-contain textarea.ui-input-text,
+#character-abilities-editor-page .ui-grid-b .ui-block-c .ui-field-contain .ui-input-search {
+	width: 94%;
+	display: block;
+}
+
+input[disabled],
+.ui-disabled {
+	opacity: 0.5;
 }
 
 input.positive {
