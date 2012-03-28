@@ -1,143 +1,178 @@
 .character-editor-form .ui-block-a input {
-	width: 4em;
+    width: 4em
 }
-
 .character-editor-form .ui-block-a table {
-	width: auto;
+    width: auto
 }
-
 .character-editor-form .ui-block-b input.mod {
-	width: 3em;
-	display: inline;
+    width: 3em;
+    display: inline;
 }
-
-#character-abilities-editor-page .ui-grid-b .ui-block-a {
-	width: 23.5%;
+.character-editor-form .ui-grid-b .ui-block-a {
+    width: 23.5%
 }
-
-#character-abilities-editor-page .ui-grid-b .ui-block-b {
-	margin-left: 6%;
-	margin-right: 6%;
-	width: 39.5%;
+.character-editor-form .ui-grid-b .ui-block-b {
+    margin-left: 6%;
+    margin-right: 6%;
+    width: 39.5%;
 }
-
-#character-abilities-editor-page .ui-grid-b .ui-block-c {
-	width: 25%;
+	.character-editor-form .ui-grid-b .ui-block-b label.ui-input-text {
+	    margin-bottom: 0
+	}
+.character-editor-form .ui-grid-b .ui-block-c {
+    width: 25%
 }
-
-#character-abilities-editor-page .ui-grid-b .ui-block-c .ui-field-contain label.ui-input-text {
-	width: 100%;
-	display: block;
-	margin-right: 0;
+	.character-editor-form .ui-grid-b .ui-block-c .ui-field-contain label.ui-input-text {
+	    width: 100%;
+	    display: block;
+	    margin-right: 0;
+	}
+	.character-editor-form .ui-grid-b .ui-block-c .ui-field-contain input.ui-input-text,
+	.character-editor-form .ui-grid-b .ui-block-c .ui-field-contain textarea.ui-input-text,
+	.character-editor-form .ui-grid-b .ui-block-c .ui-field-contain .ui-input-search {
+	    width: 94%;
+	    display: block;
+	}
+.character-editor-form input[disabled],
+.character-editor-form input.ui-disabled {
+    opacity: 1;
+    border: none;
+    padding: 0;
+    margin: -2px 0 0 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
+    font-size: 18px;
 }
-
-#character-abilities-editor-page .ui-grid-b .ui-block-c .ui-field-contain input.ui-input-text,
-#character-abilities-editor-page .ui-grid-b .ui-block-c .ui-field-contain textarea.ui-input-text,
-#character-abilities-editor-page .ui-grid-b .ui-block-c .ui-field-contain .ui-input-search {
-	width: 94%;
-	display: block;
-}
-
 input[disabled],
 .ui-disabled {
-	opacity: 0.5;
+    opacity: 0.5
 }
-
 input.positive {
-	color: #63B500;
+    color: #63B500;
+    font-weight: bold;
 }
-
 input.negative {
-	color: #E10030;
+    color: #B50000;
+    font-weight: bold;
 }
-
 label:after {
-	content: ": ";
+    content: ": "
 }
-
 .ui-radio label:after {
-	content: "";
+    content: ""
 }
-
 table {
-	width: 100%;
-	border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
-
-table th,table td {
-	padding: 6px;
+	table th,
+	table td {
+	    padding: 6px
+	}
+		table th,
+		table th label,
+		table th label.ui-slider,
+		table th label.ui-input-text {
+		    font-weight: bold;
+		    color: rgb(80,80,80);
+		}
+	table thead th {
+	    text-align: center
+	}
+	table tbody th {
+	    text-align: right
+	}
+	table td.nowrap {
+	    white-space: nowrap
+	}
+	table td input.ui-input-text {
+	    width: 95%;
+	    margin-bottom: 0;
+	}
+	table td input.ui-input-text.ui-slider-input {
+	    width: 50px
+	}
+tr.nowrap td,
+tr.nowrap th {
+    white-space: nowrap
 }
-
-table th,table th label,table th label.ui-slider,table th label.ui-input-text {
-	font-weight: bold;
+tr.small td,
+tr.small th,
+tr.small input.ui-input-text,
+tr.small textarea.ui-input-text {
+    font-size: 12px
 }
-
-table thead th {
-	text-align: center;
-}
-
-table tbody th {
-	text-align: right;
-}
-
-table td.nowrap {
-	white-space: nowrap;
-}
-
-table td input.ui-input-text {
-	width: 95%;
-	margin-bottom: 0;
-}
-
-table td input.ui-input-text.ui-slider-input {
-	width: 50px;
-}
-
-tr.nowrap td,tr.nowrap th {
-	white-space: nowrap;
-}
-
-tr.small td,tr.small th,tr.small input.ui-input-text,tr.small textarea.ui-input-text {
-	font-size: 12px;
-}
-
 tr.small td {
-	padding: 3px;
+    padding: 3px
 }
-
 tr.small th {
-	padding: 0 3px;
+    padding: 0 3px
 }
-
-tr.right td,tr.right th {
-	text-align: right;
+tr.right td,
+tr.right th {
+    text-align: right
 }
-
-tr.center td,tr.center th {
-	text-align: center;
+tr.center td,
+tr.center th {
+    text-align: center
 }
-
-tr.even td,tr.even th {
-	background-color: transparent;
+tr.even td,
+tr.even th {
+    background-color: transparent
 }
-
-tr.odd td,tr.odd th {
-	background-color: #eaeaea;
+tr.odd td,
+tr.odd th {
+    background-color: #eaeaea
 }
-
-tr.even + tr.odd th,tr.even + tr.odd td,tr.odd + tr.even th,tr.odd + tr.even td {
-	border-top: 1px solid #c0c0c0;
+tr.header td,
+tr.header th,
+table tr.header th label,
+table tr.header th label.ui-slider,
+table tr.header th label.ui-input-text,
+.character-editor-form table tr.header input[disabled],
+.character-editor-form table tr.header input.ui-disabled {
+	color: #46570B;
+    text-shadow: 0 1px 1px #A1BF36;
 }
-
+.character-editor-form table tr.header input[disabled],
+.character-editor-form table tr.header input.ui-disabled {
+    color: #0A3A4A;
+}
+tr.header td,
+tr.header th {
+    background-color: #D4E693;
+}
+tr.even + tr.odd th,
+tr.even + tr.odd td,
+tr.odd + tr.even th,
+tr.odd + tr.even td {
+    border-top: 1px solid #c0c0c0;
+}
+tr + tr.header td,tr + tr.header th,
+tr.even + tr.odd.header th,
+tr.even + tr.odd.header td,
+tr.odd + tr.even.header th,
+tr.odd + tr.even.header td {
+    border-top: 1px solid #B4C76E;
+}
+tbody th,
+tr.header td,
+tr.header th {
+	vertical-align: middle;
+}
 .clearfix:after {
-	content: ".";
-	display: block;
-	clear: both;
-	visibility: hidden;
-	line-height: 0;
-	height: 0;
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
 }
-
 * html .clearfix {
-	height: 1%;
+    height: 1%
 }

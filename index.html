@@ -273,14 +273,12 @@
 					<div class="ui-block-b">
 						<table>
 							<tbody>
-								<tr class="even">
-									<th style="width: 2em">
-										<label for="character-armor-class">
-											<abbr title="Armor Class">AC</abbr>
-										</label>
+								<tr class="even header">
+									<th colspan="2">
+										<label for="character-armor-class">Armor class</label>
 									</th>
-									<td style="width: 4em" colspan="5">
-										<input type="number" name="armor_class" disabled="disabled"
+									<td colspan="4">
+										<input type="text" name="armor_class" disabled="disabled"
 											id="character-armor-class" value="10">
 									</td>
 								</tr>
@@ -307,47 +305,51 @@
 										<span id="character-armor-class-base-value">10</span> +
 										<input name="half_level_ac"
 											id="character-armor-class-half-level" type="number"
-											class="mod plus-minus" placeholder="Le" rel="character-armor-class">
+											class="mod plus-minus" placeholder="Le"
+											rel="character-armor-class">
 									</td>
 									<td>
 										+
 										<input name="ability_mod_ac"
 											id="character-armor-class-ability-mod" type="number"
-											class="mod plus-minus" placeholder="Ab" rel="character-armor-class">
+											class="mod plus-minus" placeholder="Ab"
+											rel="character-armor-class">
 									</td>
 									<td>
 										+
 										<input name="armor_bonus_ac"
 											id="character-armor-class-armor-bonus" type="number"
-											class="mod plus-minus" placeholder="Ar" rel="character-armor-class">
+											class="mod plus-minus" placeholder="Ar"
+											rel="character-armor-class">
 									</td>
 									<td>
 										+
 										<input name="misc_mod1_ac"
 											id="character-armor-class-misc-mod1" type="number"
-											class="mod plus-minus" placeholder="Mi" rel="character-armor-class">
+											class="mod plus-minus" placeholder="Mi"
+											rel="character-armor-class">
 									</td>
 									<td>
 										+
 										<input name="misc_mod2_ac"
 											id="character-armor-class-misc-mod2" type="number"
-											class="mod plus-minus" placeholder="Mi" rel="character-armor-class">
+											class="mod plus-minus" placeholder="Mi"
+											rel="character-armor-class">
 									</td>
 									<td>
 										+
 										<input name="shield_bonus_ac"
 											id="character-armor-class-shield-bonus" type="number"
-											class="mod plus-minus" placeholder="Sh" rel="character-armor-class">
+											class="mod plus-minus" placeholder="Sh"
+											rel="character-armor-class">
 									</td>
 								</tr>
-								<tr class="odd">
-									<th>
-										<label for="character-fortitude">
-											<abbr title="Fortitude">Fort</abbr>
-										</label>
+								<tr class="odd header">
+									<th colspan="2">
+										<label for="character-fortitude">Fortitude</label>
 									</th>
-									<td colspan="5">
-										<input disabled="disabled" type="number" name="fortitude"
+									<td colspan="4">
+										<input disabled="disabled" type="text" name="fortitude"
 											id="character-fortitude" value="10">
 									</td>
 								</tr>
@@ -365,43 +367,46 @@
 									<td>
 										<span id="character-fortitude-base-value">10</span> +
 										<input name="half_level_fort"
-											id="character-fortitude-half-level" type="number" class="mod plus-minus"
-											placeholder="Le" rel="character-fortitude">
+											id="character-fortitude-half-level" type="number"
+											class="mod plus-minus" placeholder="Le"
+											rel="character-fortitude">
 									</td>
 									<td>
 										+
 										<input name="ability_mod_fort"
 											id="character-fortitude-ability-mod" type="number"
-											class="mod plus-minus" placeholder="Ab" rel="character-fortitude">
+											class="mod plus-minus" placeholder="Ab"
+											rel="character-fortitude">
 									</td>
 									<td>
 										+
 										<input name="class_bonus_fort"
 											id="character-fortitude-class-bonus" type="number"
-											class="mod plus-minus" placeholder="Cl" rel="character-fortitude">
+											class="mod plus-minus" placeholder="Cl"
+											rel="character-fortitude">
 									</td>
 									<td>
 										+
 										<input name="misc_mod1_fort"
-											id="character-fortitude-misc-mod1" type="number" class="mod plus-minus"
-											placeholder="Mi" rel="character-fortitude">
+											id="character-fortitude-misc-mod1" type="number"
+											class="mod plus-minus" placeholder="Mi"
+											rel="character-fortitude">
 									</td>
 									<td>
 										+
 										<input name="misc_mod2_fort"
-											id="character-fortitude-misc-mod2" type="number" class="mod plus-minus"
-											placeholder="Mi" rel="character-fortitude">
+											id="character-fortitude-misc-mod2" type="number"
+											class="mod plus-minus" placeholder="Mi"
+											rel="character-fortitude">
 									</td>
 									<td>--</td>
 								</tr>
-								<tr class="even">
-									<th>
-										<label for="character-reflex">
-											<abbr title="Reflex">Ref</abbr>
-										</label>
+								<tr class="even header">
+									<th colspan="2">
+										<label for="character-reflex">Reflex</label>
 									</th>
-									<td colspan="5">
-										<input disabled="disabled" type="number" name="reflex"
+									<td colspan="4">
+										<input disabled="disabled" type="text" name="reflex"
 											id="character-reflex" value="10">
 									</td>
 								</tr>
@@ -415,14 +420,16 @@
 									<td>
 										+
 										<input name="ability_mod_ref"
-											id="character-reflex-ability-mod" type="number" class="mod plus-minus"
-											placeholder="Ab" rel="character-reflex">
+											id="character-reflex-ability-mod" type="number"
+											class="mod plus-minus" placeholder="Ab"
+											rel="character-reflex">
 									</td>
 									<td>
 										+
 										<input name="class_bonus_ref"
-											id="character-reflex-class-bonus" type="number" class="mod plus-minus"
-											placeholder="Cl" rel="character-reflex">
+											id="character-reflex-class-bonus" type="number"
+											class="mod plus-minus" placeholder="Cl"
+											rel="character-reflex">
 									</td>
 									<td>
 										+
@@ -439,18 +446,17 @@
 									<td>
 										+
 										<input name="shield_bonus_ref"
-											id="character-reflex-shield-bonus" type="number" class="mod plus-minus"
-											placeholder="Sh" rel="character-reflex">
+											id="character-reflex-shield-bonus" type="number"
+											class="mod plus-minus" placeholder="Sh"
+											rel="character-reflex">
 									</td>
 								</tr>
-								<tr class="odd">
-									<th>
-										<label for="character-willpower">
-											<abbr title="Willpower">Will</abbr>
-										</label>
+								<tr class="odd header">
+									<th colspan="2">
+										<label for="character-willpower">Willpower</label>
 									</th>
-									<td colspan="5">
-										<input disabled="disabled" type="number" name="willpower"
+									<td colspan="4">
+										<input disabled="disabled" type="text" name="willpower"
 											id="character-willpower" value="10">
 									</td>
 								</tr>
@@ -458,32 +464,37 @@
 									<td>
 										<span id="character-willpower-base-value">10</span> +
 										<input name="half_level_will"
-											id="character-willpower-half-level" type="number" class="mod plus-minus"
-											placeholder="Le" rel="character-willpower">
+											id="character-willpower-half-level" type="number"
+											class="mod plus-minus" placeholder="Le"
+											rel="character-willpower">
 									</td>
 									<td>
 										+
 										<input name="ability_mod_will"
 											id="character-willpower-ability-mod" type="number"
-											class="mod plus-minus" placeholder="Ab" rel="character-willpower">
+											class="mod plus-minus" placeholder="Ab"
+											rel="character-willpower">
 									</td>
 									<td>
 										+
 										<input name="class_bonus_will"
 											id="character-willpower-class-bonus" type="number"
-											class="mod plus-minus" placeholder="Cl" rel="character-willpower">
+											class="mod plus-minus" placeholder="Cl"
+											rel="character-willpower">
 									</td>
 									<td>
 										+
 										<input name="misc_mod1_will"
-											id="character-willpower-misc-mod1" type="number" class="mod plus-minus"
-											placeholder="Mi" rel="character-willpower">
+											id="character-willpower-misc-mod1" type="number"
+											class="mod plus-minus" placeholder="Mi"
+											rel="character-willpower">
 									</td>
 									<td>
 										+
 										<input name="misc_mod2_will"
-											id="character-willpower-misc-mod2" type="number" class="mod plus-minus"
-											placeholder="Mi" rel="character-willpower">
+											id="character-willpower-misc-mod2" type="number"
+											class="mod plus-minus" placeholder="Mi"
+											rel="character-willpower">
 									</td>
 									<td>--</td>
 								</tr>
