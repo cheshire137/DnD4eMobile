@@ -1,10 +1,7 @@
-.character-editor-form .ui-block-a input {
-    width: 4em
-}
 .character-editor-form .ui-block-a table {
     width: auto
 }
-.character-editor-form .ui-block-b input.mod {
+.character-editor-form input.mod {
     width: 3em;
     display: inline;
 }
@@ -63,7 +60,8 @@ input.negative {
 label:after {
     content: ": "
 }
-.ui-radio label:after {
+.ui-radio label:after,
+.ui-checkbox label:after {
     content: ""
 }
 table {

@@ -5,7 +5,7 @@
 <title>Dungeons and Dragons 4th Edition character management app</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
-	href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css">
+  href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css">
 <link rel="stylesheet" href="themes/TealAwesome.min.css">
 <link rel="stylesheet" href="app.css">
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
@@ -16,524 +16,660 @@
 	});
 </script>
 <script
-	src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+  src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
 </head>
 <body>
-	<div data-role="page" id="character-list-page" data-title="Characters">
-		<div data-role="header" data-position="fixed">
-			<h1>Characters</h1>
-			<a href="#character-basic-info-editor-page" class="ui-btn-right"
-				data-theme="b" data-icon="plus">New</a>
-		</div>
-		<div data-role="content" id="character-list-content"></div>
-	</div>
-	<div data-role="page" id="character-basic-info-editor-page"
-		data-title="Edit Character Basic Information">
-		<div data-role="header" data-position="fixed">
-			<a href="#character-list-page" data-icon="back"
-				data-transition="slide" data-direction="reverse">Cancel</a>
-			<h1>Edit Character Basic Information</h1>
-			<a id="save-character-button" href="" data-theme="b"
-				data-icon="check">Save</a>
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#character-basic-info-editor-page"
-						class="ui-btn-active ui-state-persist" data-transition="slide">Basics</a>
-					</li>
-					<li><a href="#character-abilities-editor-page"
-						data-transition="slide">Abilities</a></li>
-				</ul>
-			</div>
-		</div>
-		<div data-role="content">
-			<form action="" method="post" class="character-editor-form">
-				<div class="ui-grid-a">
-					<div class="ui-block-a">
-						<div data-role="fieldcontain">
-							<label for="character-name">Name</label>
-							<input type="text" name="name" id="character-name" value="">
-						</div>
-						<div data-role="fieldcontain">
-							<label for="character-level">Level</label>
-							<input type="number" name="level" id="character-level" value="1">
-						</div>
-						<div data-role="fieldcontain">
-							<label for="character-race">Race</label>
-							<select name="race" id="character-race">
-								<option value="Changeling">Changeling</option>
-								<option value="Deva">Deva</option>
-								<option value="Dragonborn">Dragonborn</option>
-								<option value="Drow">Drow</option>
-								<option value="Dwarf">Dwarf</option>
-								<option value="Eladrin">Eladrin</option>
-								<option value="Elf">Elf</option>
-								<option value="Genasi">Genasi</option>
-								<option value="Githzerai">Githzerai</option>
-								<option value="Gnome">Gnome</option>
-								<option value="Goliath">Goliath</option>
-								<option value="Half-Elf">Half-Elf</option>
-								<option value="Half-Orc">Half-Orc</option>
-								<option value="Halfling">Halfling</option>
-								<option value="Human">Human</option>
-								<option value="Kalashtar">Kalashtar</option>
-								<option value="Minotaur">Minotaur</option>
-								<option value="Mul">Mul</option>
-								<option value="Shardmind">Shardmind</option>
-								<option value="Shifter">Shifter</option>
-								<option value="Thri-Kreen">Thri-Kreen</option>
-								<option value="Tiefling">Tiefling</option>
-								<option value="Warforged">Warforged</option>
-								<option value="Wilden">Wilden</option>
-							</select>
-						</div>
-						<div data-role="fieldcontain">
-							<label for="character-paragon">Paragon</label>
-							<input type="text" name="paragon" id="character-paragon" value="">
-						</div>
-					</div>
-					<div class="ui-block-b">
-						<div data-role="fieldcontain">
-							<label for="character-gender">Gender</label>
-							<select name="gender" id="character-gender" data-role="slider">
-								<option value="male">Male</option>
-								<option value="female">Female</option>
-							</select>
-						</div>
-						<div data-role="fieldcontain">
-							<label for="character-alignment">Alignment</label>
-							<select name="alignment" id="character-alignment">
-								<option value="Lawful Good">Lawful Good</option>
-								<option value="Lawful Neutral">Lawful Neutral</option>
-								<option value="Lawful Evil">Lawful Evil</option>
-								<option value="Neutral Good">Neutral Good</option>
-								<option value="Neutral" selected="selected">Neutral</option>
-								<option value="Neutral Evil">Neutral Evil</option>
-								<option value="Chaotic Good">Chaotic Good</option>
-								<option value="Chaotic Neutral">Chaotic Neutral</option>
-								<option value="Chaotic Evil">Chaotic Evil</option>
-							</select>
-						</div>
-						<div data-role="fieldcontain">
-							<label for="character-class">Class</label>
-							<select name="class" id="character-class">
-								<option value="Ardent">Ardent</option>
-								<option value="Artificer">Artificer</option>
-								<option value="Assassin">Assassin</option>
-								<option value="Avenger">Avenger</option>
-								<option value="Barbarian">Barbarian</option>
-								<option value="Bard">Bard</option>
-								<option value="Battlemind">Battlemind</option>
-								<option value="Cleric">Cleric</option>
-								<option value="Druid">Druid</option>
-								<option value="Fighter">Fighter</option>
-								<option value="Invoker">Invoker</option>
-								<option value="Monk">Monk</option>
-								<option value="Paladin">Paladin</option>
-								<option value="Psion">Psion</option>
-								<option value="Ranger">Ranger</option>
-								<option value="Rogue">Rogue</option>
-								<option value="Runepriest">Runepriest</option>
-								<option value="Shaman">Shaman</option>
-								<option value="Seeker">Seeker</option>
-								<option value="Sorcerer">Sorcerer</option>
-								<option value="Swordmage">Swordmage</option>
-								<option value="Warden">Warden</option>
-								<option value="Warlock">Warlock</option>
-								<option value="Warlord">Warlord</option>
-								<option value="Wizard">Wizard</option>
-							</select>
-						</div>
-						<div data-role="fieldcontain">
-							<label for="character-destiny">Destiny</label>
-							<input type="text" name="destiny" id="character-destiny" value="">
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-		<div data-role="footer" data-position="fixed" class="ui-bar">
-			<a id="delete-note-button" data-icon="delete"
-				data-transition="slideup" data-rel="dialog">Delete</a>
-		</div>
-	</div>
-	<div data-role="page" id="character-abilities-editor-page"
-		data-title="Edit Character Abilities">
-		<div data-role="header" data-position="fixed">
-			<a href="#character-list-page" data-icon="back"
-				data-transition="slide" data-direction="reverse">Cancel</a>
-			<h1>Edit Character Abilities</h1>
-			<a id="save-character-button" href="" data-theme="b"
-				data-icon="check">Save</a>
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#character-basic-info-editor-page"
-						data-direction="reverse" data-transition="slide">Basics</a></li>
-					<li><a href="#character-abilities-editor-page"
-						class="ui-btn-active ui-state-persist" data-transition="slide">Abilities</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div data-role="content">
-			<form action="" method="post" class="character-editor-form">
-				<div class="ui-grid-b">
-					<div class="ui-block-a">
-						<table>
-							<thead>
-								<tr>
-									<th scope="col" style="width: 2em"></th>
-									<th scope="col">Score</th>
-									<th scope="col">Mod</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th scope="row">
-										<label for="character-strength">Str</label>
-									</th>
-									<td class="nowrap">
-										<input type="number" name="strength" id="character-strength"
-											value="10">
-									</td>
-									<td class="nowrap">
-										<input type="number" class="plus-minus" name="strength_mod"
-											min="-50" id="character-strength-mod" value="0">
-									</td>
-								</tr>
-								<tr>
-									<th scope="row">
-										<label for="character-constitution">Con</label>
-									</th>
-									<td class="nowrap">
-										<input type="number" name="constitution"
-											id="character-constitution" value="10">
-									</td>
-									<td class="nowrap">
-										<input type="number" class="plus-minus"
-											name="constitution_mod" min="-50"
-											id="character-constitution-mod" value="0">
-									</td>
-								</tr>
-								<tr>
-									<th scope="row">
-										<label for="character-dexterity">Dex</label>
-									</th>
-									<td class="nowrap">
-										<input type="number" name="dexterity" id="character-dexterity"
-											value="10">
-									</td>
-									<td class="nowrap">
-										<input type="number" class="plus-minus" name="dexterity_mod"
-											min="-50" id="character-dexterity-mod" value="0">
-									</td>
-								</tr>
-								<tr>
-									<th scope="row">
-										<label for="character-intelligence">Int</label>
-									</th>
-									<td class="nowrap">
-										<input type="number" name="intelligence"
-											id="character-intelligence" value="10">
-									</td>
-									<td class="nowrap">
-										<input type="number" class="plus-minus"
-											name="intelligence_mod" min="-50"
-											id="character-intelligence-mod" value="0">
-									</td>
-								</tr>
-								<tr>
-									<th scope="row">
-										<label for="character-wisdom">Wis</label>
-									</th>
-									<td class="nowrap">
-										<input type="number" name="wisdom" id="character-wisdom"
-											value="10">
-									</td>
-									<td class="nowrap">
-										<input type="number" class="plus-minus" name="wisdom_mod"
-											min="-50" id="character-wisdom-mod" value="0">
-									</td>
-								</tr>
-								<tr>
-									<th scope="row">
-										<label for="character-charisma">Cha</label>
-									</th>
-									<td class="nowrap">
-										<input type="number" name="charisma" id="character-charisma"
-											value="10">
-									</td>
-									<td class="nowrap">
-										<input type="number" class="plus-minus" name="charisma_mod"
-											min="-50" id="character-charisma-mod" value="0">
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="ui-block-b">
-						<table>
-							<tbody>
-								<tr class="even header">
-									<th colspan="2">
-										<label for="character-armor-class">Armor class</label>
-									</th>
-									<td colspan="4">
-										<input type="text" name="armor_class" disabled="disabled"
-											id="character-armor-class" value="10">
-									</td>
-								</tr>
-								<tr class="small center even">
-									<th>&#189; Level</th>
-									<th>
-										Ability<br>Mod
-									</th>
-									<th>
-										Armor<br>Bonus
-									</th>
-									<th>
-										Misc<br>Mod
-									</th>
-									<th>
-										Misc<br>Mod
-									</th>
-									<th>
-										Shield<br>Bonus
-									</th>
-								</tr>
-								<tr class="nowrap small center even">
-									<td>
-										<span id="character-armor-class-base-value">10</span> +
-										<input name="half_level_ac"
-											id="character-armor-class-half-level" type="number"
-											class="mod plus-minus" placeholder="Le"
-											rel="character-armor-class">
-									</td>
-									<td>
-										+
-										<input name="ability_mod_ac"
-											id="character-armor-class-ability-mod" type="number"
-											class="mod plus-minus" placeholder="Ab"
-											rel="character-armor-class">
-									</td>
-									<td>
-										+
-										<input name="armor_bonus_ac"
-											id="character-armor-class-armor-bonus" type="number"
-											class="mod plus-minus" placeholder="Ar"
-											rel="character-armor-class">
-									</td>
-									<td>
-										+
-										<input name="misc_mod1_ac"
-											id="character-armor-class-misc-mod1" type="number"
-											class="mod plus-minus" placeholder="Mi"
-											rel="character-armor-class">
-									</td>
-									<td>
-										+
-										<input name="misc_mod2_ac"
-											id="character-armor-class-misc-mod2" type="number"
-											class="mod plus-minus" placeholder="Mi"
-											rel="character-armor-class">
-									</td>
-									<td>
-										+
-										<input name="shield_bonus_ac"
-											id="character-armor-class-shield-bonus" type="number"
-											class="mod plus-minus" placeholder="Sh"
-											rel="character-armor-class">
-									</td>
-								</tr>
-								<tr class="odd header">
-									<th colspan="2">
-										<label for="character-fortitude">Fortitude</label>
-									</th>
-									<td colspan="4">
-										<input disabled="disabled" type="text" name="fortitude"
-											id="character-fortitude" value="10">
-									</td>
-								</tr>
-								<tr class="small center odd">
-									<th></th>
-									<th></th>
-									<th>
-										Class<br>Bonus
-									</th>
-									<th></th>
-									<th></th>
-									<th></th>
-								</tr>
-								<tr class="nowrap small center odd">
-									<td>
-										<span id="character-fortitude-base-value">10</span> +
-										<input name="half_level_fort"
-											id="character-fortitude-half-level" type="number"
-											class="mod plus-minus" placeholder="Le"
-											rel="character-fortitude">
-									</td>
-									<td>
-										+
-										<input name="ability_mod_fort"
-											id="character-fortitude-ability-mod" type="number"
-											class="mod plus-minus" placeholder="Ab"
-											rel="character-fortitude">
-									</td>
-									<td>
-										+
-										<input name="class_bonus_fort"
-											id="character-fortitude-class-bonus" type="number"
-											class="mod plus-minus" placeholder="Cl"
-											rel="character-fortitude">
-									</td>
-									<td>
-										+
-										<input name="misc_mod1_fort"
-											id="character-fortitude-misc-mod1" type="number"
-											class="mod plus-minus" placeholder="Mi"
-											rel="character-fortitude">
-									</td>
-									<td>
-										+
-										<input name="misc_mod2_fort"
-											id="character-fortitude-misc-mod2" type="number"
-											class="mod plus-minus" placeholder="Mi"
-											rel="character-fortitude">
-									</td>
-									<td>--</td>
-								</tr>
-								<tr class="even header">
-									<th colspan="2">
-										<label for="character-reflex">Reflex</label>
-									</th>
-									<td colspan="4">
-										<input disabled="disabled" type="text" name="reflex"
-											id="character-reflex" value="10">
-									</td>
-								</tr>
-								<tr class="nowrap small center even">
-									<td>
-										<span id="character-reflex-base-value">10</span> +
-										<input name="half_level_ref" id="character-reflex-half-level"
-											type="number" class="mod plus-minus" placeholder="Le"
-											rel="character-reflex">
-									</td>
-									<td>
-										+
-										<input name="ability_mod_ref"
-											id="character-reflex-ability-mod" type="number"
-											class="mod plus-minus" placeholder="Ab"
-											rel="character-reflex">
-									</td>
-									<td>
-										+
-										<input name="class_bonus_ref"
-											id="character-reflex-class-bonus" type="number"
-											class="mod plus-minus" placeholder="Cl"
-											rel="character-reflex">
-									</td>
-									<td>
-										+
-										<input name="misc_mod1_ref" id="character-reflex-misc-mod1"
-											type="number" class="mod plus-minus" placeholder="Mi"
-											rel="character-reflex">
-									</td>
-									<td>
-										+
-										<input name="misc_mod2_ref" id="character-reflex-misc-mod2"
-											type="number" class="mod plus-minus" placeholder="Mi"
-											rel="character-reflex">
-									</td>
-									<td>
-										+
-										<input name="shield_bonus_ref"
-											id="character-reflex-shield-bonus" type="number"
-											class="mod plus-minus" placeholder="Sh"
-											rel="character-reflex">
-									</td>
-								</tr>
-								<tr class="odd header">
-									<th colspan="2">
-										<label for="character-willpower">Willpower</label>
-									</th>
-									<td colspan="4">
-										<input disabled="disabled" type="text" name="willpower"
-											id="character-willpower" value="10">
-									</td>
-								</tr>
-								<tr class="nowrap small center odd">
-									<td>
-										<span id="character-willpower-base-value">10</span> +
-										<input name="half_level_will"
-											id="character-willpower-half-level" type="number"
-											class="mod plus-minus" placeholder="Le"
-											rel="character-willpower">
-									</td>
-									<td>
-										+
-										<input name="ability_mod_will"
-											id="character-willpower-ability-mod" type="number"
-											class="mod plus-minus" placeholder="Ab"
-											rel="character-willpower">
-									</td>
-									<td>
-										+
-										<input name="class_bonus_will"
-											id="character-willpower-class-bonus" type="number"
-											class="mod plus-minus" placeholder="Cl"
-											rel="character-willpower">
-									</td>
-									<td>
-										+
-										<input name="misc_mod1_will"
-											id="character-willpower-misc-mod1" type="number"
-											class="mod plus-minus" placeholder="Mi"
-											rel="character-willpower">
-									</td>
-									<td>
-										+
-										<input name="misc_mod2_will"
-											id="character-willpower-misc-mod2" type="number"
-											class="mod plus-minus" placeholder="Mi"
-											rel="character-willpower">
-									</td>
-									<td>--</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="ui-block-c">
-						<div data-role="fieldcontain">
-							<label for="character-resistances">Resistances</label>
-							<input type="text" name="resistances" id="character-resistances"
-								value="" placeholder="Resistances">
-						</div>
-						<div data-role="fieldcontain">
-							<label for="character-saving-throw-bonuses">Saving throw
-								bonuses</label>
-							<input type="text" name="saving_throw_bonuses"
-								id="character-saving-throw-bonuses" value=""
-								placeholder="Saving throw bonuses">
-						</div>
-						<div data-role="fieldcontain">
-							<label for="character-defense-and-healing-notes1">Defense
-								and healing notes</label>
-							<input type="text" name="defense_healing_notes1"
-								id="character-defense-and-healing-notes1" value="">
-							<input type="text" name="defense_healing_notes2"
-								id="character-defense-and-healing-notes2" value="">
-							<input type="text" name="defense_healing_notes3"
-								id="character-defense-and-healing-notes3" value="">
-							<input type="text" name="defense_healing_notes4"
-								id="character-defense-and-healing-notes4" value="">
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-		<div data-role="footer" data-position="fixed" class="ui-bar">
-			<a id="delete-note-button" data-icon="delete"
-				data-transition="slideup" data-rel="dialog">Delete</a>
-		</div>
-	</div>
+  <div data-role="page" id="character-list-page" data-title="Characters">
+    <div data-role="header" data-position="fixed">
+      <h1>Characters</h1>
+      <a href="#character-basic-info-editor-page" class="ui-btn-right"
+        data-theme="b" data-icon="plus">New</a>
+    </div>
+    <div data-role="content" id="character-list-content"></div>
+  </div>
+  <div data-role="page" id="character-basic-info-editor-page"
+    data-title="Edit Character Basic Information">
+    <div data-role="header" data-position="fixed">
+      <a href="#character-list-page" data-icon="back"
+        data-transition="slide" data-direction="reverse">Cancel</a>
+      <h1>Edit Character Basic Information</h1>
+      <a id="save-character-button" href="" data-theme="b"
+        data-icon="check">Save</a>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#character-basic-info-editor-page"
+            class="ui-btn-active ui-state-persist"
+            data-transition="slide">Basics</a></li>
+          <li><a href="#character-stats-editor-page"
+            data-transition="slide">Stats</a></li>
+          <li><a href="#character-equipment-editor-page"
+            data-transition="slide">Equipment</a></li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="content">
+      <form action="" method="post" class="character-editor-form">
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <div data-role="fieldcontain">
+              <label for="character-name">Name</label>
+              <input type="text" name="name" id="character-name"
+                value="">
+            </div>
+            <div data-role="fieldcontain">
+              <label for="character-level">Level</label>
+              <input type="number" name="level" id="character-level"
+                value="1">
+            </div>
+            <div data-role="fieldcontain">
+              <label for="character-race">Race</label>
+              <select name="race" id="character-race">
+                <option value="Changeling">Changeling</option>
+                <option value="Deva">Deva</option>
+                <option value="Dragonborn">Dragonborn</option>
+                <option value="Drow">Drow</option>
+                <option value="Dwarf">Dwarf</option>
+                <option value="Eladrin">Eladrin</option>
+                <option value="Elf">Elf</option>
+                <option value="Genasi">Genasi</option>
+                <option value="Githzerai">Githzerai</option>
+                <option value="Gnome">Gnome</option>
+                <option value="Goliath">Goliath</option>
+                <option value="Half-Elf">Half-Elf</option>
+                <option value="Half-Orc">Half-Orc</option>
+                <option value="Halfling">Halfling</option>
+                <option value="Human">Human</option>
+                <option value="Kalashtar">Kalashtar</option>
+                <option value="Minotaur">Minotaur</option>
+                <option value="Mul">Mul</option>
+                <option value="Shardmind">Shardmind</option>
+                <option value="Shifter">Shifter</option>
+                <option value="Thri-Kreen">Thri-Kreen</option>
+                <option value="Tiefling">Tiefling</option>
+                <option value="Warforged">Warforged</option>
+                <option value="Wilden">Wilden</option>
+              </select>
+            </div>
+            <div data-role="fieldcontain">
+              <label for="character-paragon">Paragon</label>
+              <input type="text" name="paragon" id="character-paragon"
+                value="">
+            </div>
+            <div data-role="fieldcontain">
+              <label for="character-vision">Vision</label>
+              <select name="vision" id="character-vision">
+                <option value="normal">Normal</option>
+                <option value="low-light">Low-light</option>
+                <option value="darkvision">Darkvision</option>
+              </select>
+            </div>
+          </div>
+          <div class="ui-block-b">
+            <div data-role="fieldcontain">
+              <label for="character-gender">Gender</label>
+              <select name="gender" id="character-gender"
+                data-role="slider">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div data-role="fieldcontain">
+              <label for="character-alignment">Alignment</label>
+              <select name="alignment" id="character-alignment">
+                <option value="Lawful Good">Lawful Good</option>
+                <option value="Lawful Neutral">Lawful Neutral</option>
+                <option value="Lawful Evil">Lawful Evil</option>
+                <option value="Neutral Good">Neutral Good</option>
+                <option value="Neutral" selected="selected">Neutral</option>
+                <option value="Neutral Evil">Neutral Evil</option>
+                <option value="Chaotic Good">Chaotic Good</option>
+                <option value="Chaotic Neutral">Chaotic Neutral</option>
+                <option value="Chaotic Evil">Chaotic Evil</option>
+              </select>
+            </div>
+            <div data-role="fieldcontain">
+              <label for="character-class">Class</label>
+              <select name="class" id="character-class">
+                <option value="Ardent">Ardent</option>
+                <option value="Artificer">Artificer</option>
+                <option value="Assassin">Assassin</option>
+                <option value="Avenger">Avenger</option>
+                <option value="Barbarian">Barbarian</option>
+                <option value="Bard">Bard</option>
+                <option value="Battlemind">Battlemind</option>
+                <option value="Cleric">Cleric</option>
+                <option value="Druid">Druid</option>
+                <option value="Fighter">Fighter</option>
+                <option value="Invoker">Invoker</option>
+                <option value="Monk">Monk</option>
+                <option value="Paladin">Paladin</option>
+                <option value="Psion">Psion</option>
+                <option value="Ranger">Ranger</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Runepriest">Runepriest</option>
+                <option value="Shaman">Shaman</option>
+                <option value="Seeker">Seeker</option>
+                <option value="Sorcerer">Sorcerer</option>
+                <option value="Swordmage">Swordmage</option>
+                <option value="Warden">Warden</option>
+                <option value="Warlock">Warlock</option>
+                <option value="Warlord">Warlord</option>
+                <option value="Wizard">Wizard</option>
+              </select>
+            </div>
+            <div data-role="fieldcontain">
+              <label for="character-destiny">Destiny</label>
+              <input type="text" name="destiny" id="character-destiny"
+                value="">
+            </div>
+            <div data-role="fieldcontain">
+              <fieldset data-role="controlgroup">
+                <legend>Languages</legend>
+                <input type="checkbox" name="languages"
+                  id="languages-abyssal" value="abyssal">
+                <label for="languages-abyssal">Abyssal</label>
+                <input type="checkbox" name="languages"
+                  id="languages-common" value="common" checked="checked">
+                <label for="languages-common">Common</label>
+                <input type="checkbox" name="languages"
+                  id="languages-deep-speech" value="deep speech">
+                <label for="languages-deep-speech">Deep speech</label>
+                <input type="checkbox" name="languages"
+                  id="languages-draconic" value="draconic">
+                <label for="languages-draconic">Draconic</label>
+                <input type="checkbox" name="languages"
+                  id="languages-dwarven" value="dwarven">
+                <label for="languages-dwarven">Dwarven</label>
+                <input type="checkbox" name="languages"
+                  id="languages-elven" value="elven">
+                <label for="languages-elven">Elven</label>
+                <input type="checkbox" name="languages"
+                  id="languages-giant" value="giant">
+                <label for="languages-giant">Giant</label>
+                <input type="checkbox" name="languages"
+                  id="languages-goblin" value="goblin">
+                <label for="languages-goblin">Goblin</label>
+                <input type="checkbox" name="languages"
+                  id="languages-primordial" value="primordial">
+                <label for="languages-primordial">Primordial</label>
+                <input type="checkbox" name="languages"
+                  id="languages-supernal" value="supernal">
+                <label for="languages-supernal">Supernal</label>
+                <input type="checkbox" name="languages"
+                  id="languages-script" value="script">
+                <label for="languages-script">Script</label>
+                <input type="checkbox" name="languages"
+                  id="languages-rellanic" value="rellanic">
+                <label for="languages-rellanic">Rellanic</label>
+                <input type="checkbox" name="languages"
+                  id="languages-iokharic" value="iokharic">
+                <label for="languages-iokharic">Iokharic</label>
+                <input type="checkbox" name="languages"
+                  id="languages-davek" value="davek">
+                <label for="languages-davek">Davek</label>
+                <input type="checkbox" name="languages"
+                  id="languages-barazhad" value="barazhad">
+                <label for="languages-barazhad">Barazhad</label>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div data-role="footer" data-position="fixed" class="ui-bar">
+      <a id="delete-note-button" data-icon="delete"
+        data-transition="slideup" data-rel="dialog">Delete</a>
+    </div>
+  </div>
+  <div data-role="page" id="character-stats-editor-page"
+    data-title="Edit Character Stats">
+    <div data-role="header" data-position="fixed">
+      <a href="#character-list-page" data-icon="back"
+        data-transition="slide" data-direction="reverse">Cancel</a>
+      <h1>Edit Character Stats</h1>
+      <a id="save-character-button" href="" data-theme="b"
+        data-icon="check">Save</a>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#character-basic-info-editor-page"
+            data-direction="reverse" data-transition="slide">Basics</a></li>
+          <li><a href="#character-stats-editor-page"
+            class="ui-btn-active ui-state-persist"
+            data-transition="slide">Stats</a></li>
+          <li><a href="#character-equipment-editor-page"
+            data-transition="slide">Equipment</a></li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="content">
+      <form action="" method="post" class="character-editor-form">
+        <div class="ui-grid-b">
+          <div class="ui-block-a">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 2em"></th>
+                  <th scope="col">Score</th>
+                  <th scope="col">Mod</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><label for="character-strength">Str</label>
+                  </th>
+                  <td class="nowrap">
+                    <input type="number" name="strength"
+                      id="character-strength" value="10">
+                  </td>
+                  <td class="nowrap">
+                    <input type="number" class="plus-minus"
+                      name="strength_mod" min="-50"
+                      id="character-strength-mod" value="0">
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><label
+                      for="character-constitution">Con</label></th>
+                  <td class="nowrap">
+                    <input type="number" name="constitution"
+                      id="character-constitution" value="10">
+                  </td>
+                  <td class="nowrap">
+                    <input type="number" class="plus-minus"
+                      name="constitution_mod" min="-50"
+                      id="character-constitution-mod" value="0">
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><label for="character-dexterity">Dex</label>
+                  </th>
+                  <td class="nowrap">
+                    <input type="number" name="dexterity"
+                      id="character-dexterity" value="10">
+                  </td>
+                  <td class="nowrap">
+                    <input type="number" class="plus-minus"
+                      name="dexterity_mod" min="-50"
+                      id="character-dexterity-mod" value="0">
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><label
+                      for="character-intelligence">Int</label></th>
+                  <td class="nowrap">
+                    <input type="number" name="intelligence"
+                      id="character-intelligence" value="10">
+                  </td>
+                  <td class="nowrap">
+                    <input type="number" class="plus-minus"
+                      name="intelligence_mod" min="-50"
+                      id="character-intelligence-mod" value="0">
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><label for="character-wisdom">Wis</label>
+                  </th>
+                  <td class="nowrap">
+                    <input type="number" name="wisdom"
+                      id="character-wisdom" value="10">
+                  </td>
+                  <td class="nowrap">
+                    <input type="number" class="plus-minus"
+                      name="wisdom_mod" min="-50"
+                      id="character-wisdom-mod" value="0">
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><label for="character-charisma">Cha</label>
+                  </th>
+                  <td class="nowrap">
+                    <input type="number" name="charisma"
+                      id="character-charisma" value="10">
+                  </td>
+                  <td class="nowrap">
+                    <input type="number" class="plus-minus"
+                      name="charisma_mod" min="-50"
+                      id="character-charisma-mod" value="0">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="ui-block-b">
+            <table>
+              <tbody>
+                <tr class="even header">
+                  <th colspan="2"><label
+                      for="character-armor-class">Armor class</label></th>
+                  <td colspan="4">
+                    <input type="text" name="armor_class"
+                      disabled="disabled" id="character-armor-class"
+                      value="10">
+                  </td>
+                </tr>
+                <tr class="small center even">
+                  <th>&#189; Level</th>
+                  <th>Ability <br> Mod
+                  </th>
+                  <th>Armor <br> Bonus
+                  </th>
+                  <th>Misc <br> Mod
+                  </th>
+                  <th>Misc <br> Mod
+                  </th>
+                  <th>Shield <br> Bonus
+                  </th>
+                </tr>
+                <tr class="nowrap small center even">
+                  <td>
+                    <span id="character-armor-class-base-value">10</span>
+                    + <input name="half_level_ac"
+                      id="character-armor-class-half-level"
+                      type="number" class="mod plus-minus"
+                      placeholder="Le" rel="character-armor-class">
+                  </td>
+                  <td>
+                    + <input name="ability_mod_ac"
+                      id="character-armor-class-ability-mod"
+                      type="number" class="mod plus-minus"
+                      placeholder="Ab" rel="character-armor-class">
+                  </td>
+                  <td>
+                    + <input name="armor_bonus_ac"
+                      id="character-armor-class-armor-bonus"
+                      type="number" class="mod plus-minus"
+                      placeholder="Ar" rel="character-armor-class">
+                  </td>
+                  <td>
+                    + <input name="misc_mod1_ac"
+                      id="character-armor-class-misc-mod1" type="number"
+                      class="mod plus-minus" placeholder="Mi"
+                      rel="character-armor-class">
+                  </td>
+                  <td>
+                    + <input name="misc_mod2_ac"
+                      id="character-armor-class-misc-mod2" type="number"
+                      class="mod plus-minus" placeholder="Mi"
+                      rel="character-armor-class">
+                  </td>
+                  <td>
+                    + <input name="shield_bonus_ac"
+                      id="character-armor-class-shield-bonus"
+                      type="number" class="mod plus-minus"
+                      placeholder="Sh" rel="character-armor-class">
+                  </td>
+                </tr>
+                <tr class="odd header">
+                  <th colspan="2"><label for="character-fortitude">Fortitude</label>
+                  </th>
+                  <td colspan="4">
+                    <input disabled="disabled" type="text"
+                      name="fortitude" id="character-fortitude"
+                      value="10">
+                  </td>
+                </tr>
+                <tr class="small center odd">
+                  <th></th>
+                  <th></th>
+                  <th>Class<br>Bonus
+                  </th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+                <tr class="nowrap small center odd">
+                  <td>
+                    <span id="character-fortitude-base-value">10</span>
+                    + <input name="half_level_fort"
+                      id="character-fortitude-half-level" type="number"
+                      class="mod plus-minus" placeholder="Le"
+                      rel="character-fortitude">
+                  </td>
+                  <td>
+                    + <input name="ability_mod_fort"
+                      id="character-fortitude-ability-mod" type="number"
+                      class="mod plus-minus" placeholder="Ab"
+                      rel="character-fortitude">
+                  </td>
+                  <td>
+                    + <input name="class_bonus_fort"
+                      id="character-fortitude-class-bonus" type="number"
+                      class="mod plus-minus" placeholder="Cl"
+                      rel="character-fortitude">
+                  </td>
+                  <td>
+                    + <input name="misc_mod1_fort"
+                      id="character-fortitude-misc-mod1" type="number"
+                      class="mod plus-minus" placeholder="Mi"
+                      rel="character-fortitude">
+                  </td>
+                  <td>
+                    + <input name="misc_mod2_fort"
+                      id="character-fortitude-misc-mod2" type="number"
+                      class="mod plus-minus" placeholder="Mi"
+                      rel="character-fortitude">
+                  </td>
+                  <td>--</td>
+                </tr>
+                <tr class="even header">
+                  <th colspan="2"><label for="character-reflex">Reflex</label>
+                  </th>
+                  <td colspan="4">
+                    <input disabled="disabled" type="text" name="reflex"
+                      id="character-reflex" value="10">
+                  </td>
+                </tr>
+                <tr class="nowrap small center even">
+                  <td>
+                    <span id="character-reflex-base-value">10</span> + <input
+                      name="half_level_ref"
+                      id="character-reflex-half-level" type="number"
+                      class="mod plus-minus" placeholder="Le"
+                      rel="character-reflex">
+                  </td>
+                  <td>
+                    + <input name="ability_mod_ref"
+                      id="character-reflex-ability-mod" type="number"
+                      class="mod plus-minus" placeholder="Ab"
+                      rel="character-reflex">
+                  </td>
+                  <td>
+                    + <input name="class_bonus_ref"
+                      id="character-reflex-class-bonus" type="number"
+                      class="mod plus-minus" placeholder="Cl"
+                      rel="character-reflex">
+                  </td>
+                  <td>
+                    + <input name="misc_mod1_ref"
+                      id="character-reflex-misc-mod1" type="number"
+                      class="mod plus-minus" placeholder="Mi"
+                      rel="character-reflex">
+                  </td>
+                  <td>
+                    + <input name="misc_mod2_ref"
+                      id="character-reflex-misc-mod2" type="number"
+                      class="mod plus-minus" placeholder="Mi"
+                      rel="character-reflex">
+                  </td>
+                  <td>
+                    + <input name="shield_bonus_ref"
+                      id="character-reflex-shield-bonus" type="number"
+                      class="mod plus-minus" placeholder="Sh"
+                      rel="character-reflex">
+                  </td>
+                </tr>
+                <tr class="odd header">
+                  <th colspan="2"><label for="character-willpower">Willpower</label>
+                  </th>
+                  <td colspan="4">
+                    <input disabled="disabled" type="text"
+                      name="willpower" id="character-willpower"
+                      value="10">
+                  </td>
+                </tr>
+                <tr class="nowrap small center odd">
+                  <td>
+                    <span id="character-willpower-base-value">10</span>
+                    + <input name="half_level_will"
+                      id="character-willpower-half-level" type="number"
+                      class="mod plus-minus" placeholder="Le"
+                      rel="character-willpower">
+                  </td>
+                  <td>
+                    + <input name="ability_mod_will"
+                      id="character-willpower-ability-mod" type="number"
+                      class="mod plus-minus" placeholder="Ab"
+                      rel="character-willpower">
+                  </td>
+                  <td>
+                    + <input name="class_bonus_will"
+                      id="character-willpower-class-bonus" type="number"
+                      class="mod plus-minus" placeholder="Cl"
+                      rel="character-willpower">
+                  </td>
+                  <td>
+                    + <input name="misc_mod1_will"
+                      id="character-willpower-misc-mod1" type="number"
+                      class="mod plus-minus" placeholder="Mi"
+                      rel="character-willpower">
+                  </td>
+                  <td>
+                    + <input name="misc_mod2_will"
+                      id="character-willpower-misc-mod2" type="number"
+                      class="mod plus-minus" placeholder="Mi"
+                      rel="character-willpower">
+                  </td>
+                  <td>--</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="ui-block-c">
+            <div data-role="fieldcontain">
+              <label for="character-resistances">Resistances</label>
+              <input type="text" name="resistances"
+                id="character-resistances" value=""
+                placeholder="Resistances">
+            </div>
+            <div data-role="fieldcontain">
+              <label for="character-saving-throw-bonuses">Saving
+                throw bonuses</label>
+              <input type="text" name="saving_throw_bonuses"
+                id="character-saving-throw-bonuses" value=""
+                placeholder="Saving throw bonuses">
+            </div>
+            <div data-role="fieldcontain">
+              <label for="character-defense-and-healing-notes1">Defense
+                and healing notes</label>
+              <input type="text" name="defense_healing_notes1"
+                id="character-defense-and-healing-notes1" value="">
+              <input type="text" name="defense_healing_notes2"
+                id="character-defense-and-healing-notes2" value="">
+              <input type="text" name="defense_healing_notes3"
+                id="character-defense-and-healing-notes3" value="">
+              <input type="text" name="defense_healing_notes4"
+                id="character-defense-and-healing-notes4" value="">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div data-role="footer" data-position="fixed" class="ui-bar">
+      <a id="delete-note-button" data-icon="delete"
+        data-transition="slideup" data-rel="dialog">Delete</a>
+    </div>
+  </div>
+  <div data-role="page" id="character-equipment-editor-page"
+    data-title="Edit Character Equipment">
+    <div data-role="header" data-position="fixed">
+      <a href="#character-list-page" data-icon="back"
+        data-transition="slide" data-direction="reverse">Cancel</a>
+      <h1>Edit Character Equipment</h1>
+      <a id="save-character-button" href="" data-theme="b"
+        data-icon="check">Save</a>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#character-basic-info-editor-page"
+            data-direction="reverse" data-transition="slide">Basics</a></li>
+          <li><a href="#character-stats-editor-page"
+            data-direction="reverse" data-transition="slide">Stats</a></li>
+          <li><a href="#character-equipment-editor-page"
+            class="ui-btn-active ui-state-persist"
+            data-transition="slide">Equipment</a></li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="content">
+      <form action="" method="post" class="character-editor-form">
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <div data-role="fieldcontain">
+              <label for="character-equipment-armor">Armor</label>
+              <input type="text" name="equipment_armor"
+                id="character-equipment-armor" value=""
+                placeholder="Armor">
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Armor<br>Bonus
+                  </th>
+                  <th>Speed<br>Penalty
+                  </th>
+                  <th>Check<br>Penalty
+                  </th>
+                  <th>Weight</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input type="number" class="mod plus-minus"
+                      placeholder="Ar" name="equipment_armor_bonus"
+                      value="">
+                  </td>
+                  <td>
+                    <input type="number" class="mod plus-minus"
+                      placeholder="Sp"
+                      name="equipment_armor_speed_penalty" value="">
+                  </td>
+                  <td>
+                    <input type="number" class="mod plus-minus"
+                      placeholder="Ch"
+                      name="equipment_armor_check_penalty" value="">
+                  </td>
+                  <td>
+                    <input type="number" class="mod plus-minus"
+                      placeholder="We" name="equipment_armor_weight"
+                      value="">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div data-role="fieldcontain">
+              <label for="character-equipment-armor-notes">Armor
+                notes</label>
+              <input type="text" name="equipment_armor_notes"
+                id="character-equipment-armor-notes" value=""
+                placeholder="Armor notes">
+            </div>
+            <div data-role="fieldcontain">
+              <label for="character-equipment-head">Head</label>
+              <input type="text" name="equipment_head"
+                id="character-equipment-head" value=""
+                placeholder="Head">
+            </div>
+            <div data-role="fieldcontain">
+              <label for="character-equipment-head-notes">Head notes</label>
+              <input type="text" name="equipment_head_notes"
+                id="character-equipment-head-notes" value=""
+                placeholder="Head notes">
+            </div>
+          </div>
+          <div class="ui-block-b"></div>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
